@@ -957,6 +957,8 @@ class FetchManagerMetrics(object):
             'The average number of records in each request'), Avg())
         self.records_fetched.add(metrics.metric_name('records-consumed-rate', self.group_name,
             'The average number of records consumed per second'), Rate())
+        self.records_fetched.add(metrics.metric_name('records-consumed-total', self.group_name,
+            'The total number of records consumed per second'), Count())
 
         self.fetch_latency = metrics.sensor('fetch-latency')
         self.fetch_latency.add(metrics.metric_name('fetch-latency-avg', self.group_name,
